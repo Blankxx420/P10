@@ -16,7 +16,7 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 import django_heroku
 
-dotenv_path = join(dirname(__file__), '.env')
+dotenv_path = join(dirname(__file__), '../../.env')
 load_dotenv(dotenv_path)
 ENV = os.environ.get("ENV", "development")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
