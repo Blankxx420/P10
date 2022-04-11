@@ -1,6 +1,5 @@
 language: python
 python:
-  - "3.8"
   - "3.9"
 
 addons:
@@ -15,7 +14,10 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - install-webdrivers --path webdrivers
+  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+  - wget https://chromedriver.storage.googleapis.com/`cat LATEST_RELEASE`/chromedriver_linux64.zip
+  - sudo unzip chromedriver_linux64.zip -d /usr/local/bin
+
 
 env:
   global:
