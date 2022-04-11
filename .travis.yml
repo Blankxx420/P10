@@ -21,7 +21,7 @@ before_script:
 
 env:
   global:
-    - DJANGO_SETTINGS_MODULE="purbeurre.settings.travis"
+    - DJANGO_SETTINGS_MODULE="djangoProject.settings.travis"
 
 services:
   - postgresql
