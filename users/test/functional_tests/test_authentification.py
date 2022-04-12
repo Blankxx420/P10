@@ -5,7 +5,6 @@ from djangoProject.settings import BASE_DIR
 from selenium.webdriver.common.by import By
 
 
-
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('window-size=1920x1080')
@@ -42,6 +41,6 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         )
         confirm_password_input.send_keys("Password+1234")
         # Click on button which registers + login automatically
-        self.selenium.find_element(By.NAME, "btn").click()
+        self.selenium.find_element(By.ID, "register").click()
         # Checks if icon "mon_compte" in DOM, means logged in
         self.selenium.find_element_by_id("mon_compte")
