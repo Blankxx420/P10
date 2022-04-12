@@ -18,7 +18,8 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         cls.selenium = webdriver.Chrome(
             executable_path=str(BASE_DIR / 'webdrivers' / 'chromedriver'),
             options=chrome_options,)
-        cls.selenium.implicitly_wait(10)
+        cls.driver.implicitly_wait(30)
+        cls.driver.maximize_window()
 
     @classmethod
     def tearDownClass(cls):
