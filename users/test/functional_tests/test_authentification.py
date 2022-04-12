@@ -18,7 +18,7 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         cls.selenium = webdriver.Chrome(
             executable_path=str(BASE_DIR / 'webdrivers' / 'chromedriver'),
             options=chrome_options,)
-        cls.selenium.implicitly_wait(30)
+        cls.selenium.implicitly_wait(10)
         cls.selenium.maximize_window()
 
     @classmethod
@@ -41,6 +41,6 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         )
         confirm_password_input.send_keys("Password+1234")
         # Click on button which registers + login automatically
-        self.selenium.find_element_by_class_name("btn").click()
+        self.selenium.find_element_by_name("btn-register").click()
         # Checks if icon "mon_compte" in DOM, means logged in
         self.selenium.find_element_by_id("mon_compte")
