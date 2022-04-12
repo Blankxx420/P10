@@ -1,6 +1,13 @@
+
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-from chromedriver_binary import add_chromedriver_to_path
+from djangoProject.settings import BASE_DIR
+
+
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('window-size=1920x1080')
 
 
 class SeleniumRegisterTest(StaticLiveServerTestCase):
@@ -8,7 +15,9 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome("/home/travis/virtualenv/python3.9.5/bin/chromedriver")
+        cls.selenium = webdriver.Chrome(
+            executable_path=str(BASE_DIR / 'webdrivers' / 'chromedriver'),
+            options=chrome_options,)
         cls.selenium.implicitly_wait(10)
 
     @classmethod
