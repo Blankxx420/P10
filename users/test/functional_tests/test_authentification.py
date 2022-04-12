@@ -8,7 +8,7 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome("venv/lib/python3.9/site-packages/chromedriver_binary/chromedriver")
+        cls.selenium = webdriver.Chrome("/home/travis/virtualenv/lib/python3.9/")
         cls.selenium.implicitly_wait(10)
 
     @classmethod
