@@ -4,7 +4,6 @@ from selenium import webdriver
 from djangoProject.settings import BASE_DIR
 
 
-
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('window-size=1920x1080')
