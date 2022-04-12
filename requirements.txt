@@ -6,7 +6,7 @@ certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.7
 chromedriver==2.24.1
-chromedriver-binary==96.0.4664.45.0
+chromedriver-binary==100.0.4896.60.0
 coverage==6.2
 cryptography==36.0.1
 dj-database-url==0.5.0
