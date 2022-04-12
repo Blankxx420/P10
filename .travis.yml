@@ -23,5 +23,5 @@ services:
   - postgresql
 
 script:
-  - pipenv run python manage.py migrate
-  - pipenv run python manage.py test
+  - python manage.py migrate
+  - python manage.py test
