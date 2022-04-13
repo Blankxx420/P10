@@ -1,16 +1,12 @@
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-
 from djangoProject.settings import BASE_DIR
 from selenium.webdriver.common.by import By
 
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('window-size=1920x1080')
+firefox_options = webdriver.FirefoxOptions()
+firefox_options.headless = True
 
 
 class SeleniumRegisterTest(StaticLiveServerTestCase):
@@ -18,9 +14,10 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome(
+        cls.selenium = webdriver.Firefox(
             executable_path=str(BASE_DIR / 'webdrivers' / 'chromedriver'),
-            options=chrome_options,)
+            options=firefox_options,
+        )
         cls.selenium.implicitly_wait(10)
         cls.selenium.maximize_window()
 

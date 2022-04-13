@@ -3,7 +3,7 @@ python:
   - "3.9"
 
 addons:
-  chrome: stable
+  firefox: latest
 
 # safelist (indicate the only branches to check)
 branches:
