@@ -41,6 +41,6 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         # Click on button which registers + login automatically
         submit_btn = self.driver.find_elements(By.CSS_SELECTOR, "#btn-register")
         submit_btn.location_once_scrolled_into_view
-        submit_btn.click()
+        submit_btn[0].click()
         # Checks if icon "mon_compte" in DOM, means logged in
         self.driver.find_element(By.ID, "mon_compte")
