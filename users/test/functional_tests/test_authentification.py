@@ -15,7 +15,7 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.selenium = webdriver.Firefox(
-            executable_path=str(BASE_DIR / 'webdrivers' / 'chromedriver'),
+            executable_path=str(BASE_DIR / 'webdrivers' / 'geckodriver'),
             options=firefox_options,
         )
         cls.selenium.implicitly_wait(10)
