@@ -1,6 +1,8 @@
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from djangoProject.settings import BASE_DIR
 from selenium.webdriver.common.by import By
 
@@ -39,8 +41,6 @@ class SeleniumRegisterTest(StaticLiveServerTestCase):
         confirm_password_input = self.driver.find_element(By.NAME, "password2")
         confirm_password_input.send_keys("Password+1234")
         # Click on button which registers + login automatically
-        submit_btn = self.driver.find_elements(By.CSS_SELECTOR, "#btn-register")
-        submit_btn.location_once_scrolled_into_view
-        submit_btn[0].click()
+        WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#btn-register"))).click()
         # Checks if icon "mon_compte" in DOM, means logged in
         self.driver.find_element(By.ID, "mon_compte")
