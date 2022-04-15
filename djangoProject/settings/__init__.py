@@ -16,6 +16,7 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 import django_heroku
 import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 dotenv_path = join(dirname(__file__), '../../.env')
 load_dotenv(dotenv_path)
@@ -164,8 +165,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-sentry_sdk.init(
-    dsn="https://81d66a2a8b0543e58b799c73d84bd977@o1205506.ingest.sentry.io/6335819",
-    traces_sample_rate=1.0,
-    send_default_pii=True,
-)
+
+if ENV == "production":
+    sentry_sdk.init(
+        dsn="https://fd036ed83aec4c1d8d85d5129bb76c37@o592289.ingest.sentry.io/5740647",
+        integrations=[DjangoIntegration()],
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        # We recommend adjusting this value in production.
+        traces_sample_rate=1.0,
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True,
+    )
