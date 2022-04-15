@@ -15,6 +15,7 @@ import dj_database_url
 from os.path import join, dirname
 from dotenv import load_dotenv
 import django_heroku
+import sentry_sdk
 
 dotenv_path = join(dirname(__file__), '../../.env')
 load_dotenv(dotenv_path)
@@ -162,3 +163,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+sentry_sdk.init(
+    dsn="https://81d66a2a8b0543e58b799c73d84bd977@o1205506.ingest.sentry.io/6335819",
+    traces_sample_rate=1.0,
+    send_default_pii=True,
+)
