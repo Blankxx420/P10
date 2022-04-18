@@ -19,7 +19,9 @@ from django.contrib.auth import views as auth_views
 import search.urls
 from users import views as users_views
 
+
 urlpatterns = [
+    path('sentry-debug/', users_views.trigger_error),
     path('admin/', admin.site.urls),
     path('', include(search.urls)),
     path("register/", users_views.register, name="register"),
