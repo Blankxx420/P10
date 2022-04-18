@@ -168,7 +168,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 if ENV == "production":
     sentry_sdk.init(
-        dsn="https://fd036ed83aec4c1d8d85d5129bb76c37@o592289.ingest.sentry.io/5740647",
+        dsn="https://d0174c59201547b6acf441d04414c68b@o1205506.ingest.sentry.io/6342657",
         integrations=[DjangoIntegration()],
         # Set traces_sample_rate to 1.0 to capture 100%
         # of transactions for performance monitoring.
