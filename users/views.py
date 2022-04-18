@@ -6,8 +6,6 @@ from .forms import UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-def trigger_error(request):
-    division_by_zero = 1 / 0
 
 def register(request):
     """Displays the registration page"""

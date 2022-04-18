@@ -20,8 +20,12 @@ import search.urls
 from users import views as users_views
 
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+
 urlpatterns = [
-    path('sentry-debug/', users_views.trigger_error),
+    path('sentry-debug/', trigger_error),
     path('admin/', admin.site.urls),
     path('', include(search.urls)),
     path("register/", users_views.register, name="register"),
