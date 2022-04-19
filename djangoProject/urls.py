@@ -22,7 +22,7 @@ from users import views as users_views
 
 def trigger_error(request):
     division_by_zero = 1 / 0
-    return request
+    return division_by_zero, request
 
 
 
